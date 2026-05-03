@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>จดหมายถึงเธอ 💌</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Kanit',sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      background: linear-gradient(rgba(10,20,15,0.75), rgba(0,0,0,0.92)),
+      url('https://img.pikbest.com/backgrounds/20250104/green-forest-natural-background_11338788.jpg!w700wp');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#e8f5e9;
+      overflow:hidden;
+      position:relative;
+    }
+
+    /* falling leaves */
+    .leaf{
+      position:absolute;
+      top:-10%;
+      width:18px;
+      height:18px;
+      background:rgba(139,195,74,0.7);
+      border-radius:50% 0 50% 0;
+      animation:fall linear infinite;
+      opacity:0.7;
+    }
+
+    @keyframes fall{
+      0%{transform:translateY(0) rotate(0deg); opacity:0;}
+      10%{opacity:1;}
+      100%{transform:translateY(110vh) rotate(360deg); opacity:0;}
+    }
+
+    .letter{
+      max-width:700px;
+      padding:40px;
+      background:rgba(40,60,40,0.55);
+      border-radius:20px;
+      backdrop-filter:blur(10px);
+      box-shadow:0 10px 30px rgba(0,0,0,0.4);
+      animation:fadeIn 1.5s ease;
+      line-height:1.8;
+      z-index:2;
+      position:relative;
+      text-align:center;
+    }
+
+    h1{
+      margin-bottom:20px;
+      color:#c8e6c9;
+    }
+
+    p{
+      margin-bottom:15px;
+      color:#f1f8e9;
+      text-align:left;
+    }
+
+    .signature{
+      margin-top:25px;
+      text-align:right;
+      color:#a5d6a7;
+    }
+
+    /* button row */
+    .btn-row{
+      display:flex;
+      gap:15px;
+      justify-content:center;
+      margin-top:25px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:12px 28px;
+      border:none;
+      border-radius:30px;
+      background:linear-gradient(135deg,#2e7d32,#004d40);
+      color:white;
+      cursor:pointer;
+      transition:0.3s;
+      min-width:160px;
+      flex:0;
+    }
+
+    .btn:hover{
+      transform:scale(1.05);
+    }
+
+    .back-btn{
+      background:rgba(255,255,255,0.15);
+    }
+
+    .back-btn:hover{
+      background:rgba(255,255,255,0.25);
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0; transform:translateY(20px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="letter">
+
+    <h1>💌 ถึงเธอคนเดียว</h1>
+
+    <p>ตั้งแต่วันที่เราได้รู้จักกัน จนถึงวันนี้ 8 เดือนแล้วนะ พี่ไม่เคยคิดเลยว่าคนธรรมดาคนหนึ่งจะทำให้ชีวิตรู้สึกพิเศษได้ขนาดนี้</p>
+
+    <p>ทุกวันเวลาที่ได้คุยกัน ถึงจะเป็นเรื่องเล็ก ๆ แต่มันมีความหมายมาก เธอทำให้พี่รู้สึกว่า การมีใครสักคนอยู่ข้าง ๆ มันดีแบบนี้เอง</p>
+
+    <p>บางวันเราอาจจะงอแง ไม่เข้าใจกันบ้าง แต่สุดท้ายเราก็ยังเลือกกันและกันเสมอ นั่นแหละคือสิ่งที่สำคัญที่สุด</p>
+
+    <p>พี่ไม่ได้อยากให้มันหวือหวา แค่ขอให้เราได้เดินไปด้วยกันเรื่อย ๆ แบบนี้ก็พอแล้ว 💚</p>
+
+    <div class="signature">— คนที่ยังอยู่ตรงนี้เสมอ 🌿</div>
+
+    <div class="btn-row">
+      <button class="btn back-btn" onclick="back()">ย้อนกลับ</button>
+      <button class="btn" onclick="next()">ไปต่อ 🌲</button>
+    </div>
+
+  </div>
+
+  <script>
+    function next(){
+      window.location.href = "countdown.html";
+    }
+
+    function back(){
+      window.location.href = "timeline.html";
+    }
+
+    // falling leaves
+    for(let i=0;i<18;i++){
+      let leaf=document.createElement('div');
+      leaf.classList.add('leaf');
+      leaf.style.left=Math.random()*100+'vw';
+      leaf.style.animationDuration=(4+Math.random()*5)+'s';
+      leaf.style.animationDelay=Math.random()*5+'s';
+      document.body.appendChild(leaf);
+    }
+  </script>
+
+</body>
+</html>

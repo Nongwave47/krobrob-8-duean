@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ไทม์ไลน์ของเรา 🌿</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Kanit',sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(rgba(10,20,15,0.7), rgba(0,0,0,0.92)),
+    url('https://as1.ftcdn.net/jpg/01/90/63/46/1000_F_190634644_dvcYSDf1IkVPs44gYO8MTW1DXnJtziDS.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #e8f5e9;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:60px 20px;
+}
+
+h1{
+text-align:center;
+font-size:2.6rem;
+margin-bottom:10px;
+color:#c8e6c9;
+}
+
+p.sub{
+text-align:center;
+margin-bottom:40px;
+color:#a5d6a7;
+}
+
+.timeline{
+  position:relative;
+  margin-top:40px;
+  padding-bottom:60px; /* 👈 เพิ่มให้เส้นดูยาวลงสุด */
+}
+
+.timeline::before{
+  content:'';
+  position:absolute;
+  left:50%;
+  top:0;
+  bottom:0;
+  width:3px;
+  background:linear-gradient(#81c784, #2e7d32); /* 👈 ให้ดูมีมิติ */
+  transform:translateX(-50%);
+  border-radius:10px;
+}
+.timeline::before{
+  box-shadow: 0 0 10px rgba(129,199,132,0.6);
+}
+
+
+.item{
+width:50%;
+padding:20px;
+position:relative;
+}
+
+.box{
+background:rgba(40,60,40,0.6);
+padding:20px;
+border-radius:15px;
+backdrop-filter:blur(6px);
+box-shadow:0 5px 20px rgba(0,0,0,0.3);
+line-height:1.7;
+transition:0.3s;
+}
+
+.box:hover{
+transform:scale(1.02);
+}
+
+.left{left:0;text-align:right;}
+.right{left:50%;}
+
+.item::before{
+content:'🌿';
+position:absolute;
+top:20px;
+font-size:1.2rem;
+}
+
+.left::before{right:-10px;}
+.right::before{left:-10px;}
+
+.btn-group{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:50px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:12px 25px;
+border:none;
+border-radius:30px;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+.btn:hover{transform:scale(1.05);}
+
+.next{
+background:linear-gradient(135deg,#2e7d32,#004d40);
+}
+
+.back{
+background:linear-gradient(135deg,#455a64,#263238);
+}
+
+@media(max-width:768px){
+.item{width:100%;padding-left:40px;text-align:left!important;}
+.timeline::before{left:20px;}
+.left,.right{left:0;}
+}
+
+/* 👇 ใส่ตรงนี้ทั้งหมด */
+.leaves{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.leaf{
+  position: absolute;
+  top: -10%;
+  font-size: 18px;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+@keyframes fall{
+  0%{
+    transform: translateY(-10%) rotate(0deg);
+  }
+  100%{
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="leaves"></div>  <!-- 👈 ใส่ตรงนี้บรรทัดแรกใน body -->
+
+<div class="container">
+
+<h1>🌲 ไทม์ไลน์ของเรา 🌊</h1>
+<p class="sub">8 เดือนของการเดินทางที่มีความหมาย</p>
+
+<div class="item left"><div class="box">💬 เดือนที่ 1 – จุดเริ่มต้นของเรา : วันแรกที่เราเริ่มคุยกัน ทุกอย่างมันดูธรรมดาแต่พิเศษในแบบที่อธิบายไม่ถูก จากคนที่ไม่เคยรู้จักกัน กลายเป็นคนที่อยากคุยด้วยทุกวัน แม้จะเป็นข้อความสั้น ๆ แต่มันทำให้รู้สึกว่ามีใครบางคนเข้ามาเติมเต็มชีวิตแบบเงียบ ๆ</div></div> 
+<div class="item right"><div class="box">🌿 เดือนที่ 2 – เริ่มผูกพัน : จากการคุยเล่นธรรมดา กลายเป็นการรอข้อความจากกันและกัน ความรู้สึกเริ่มชัดขึ้นว่าเราไม่ได้แค่คุยแก้เหงา แต่เริ่มอยากรู้เรื่องราวของอีกฝ่ายมากขึ้นทุกวัน จนเริ่มรู้สึกว่าถ้าวันไหนไม่ได้คุย มันเหมือนขาดอะไรบางอย่างไป</div></div> 
+<div class="item left"><div class="box">🌧️ เดือนที่ 3 – ช่วงปรับตัว : เราเริ่มรู้จักกันลึกขึ้น มีทั้งวันที่เข้าใจกันและไม่เข้าใจกัน แต่สิ่งที่สำคัญคือเรายังเลือกที่จะอยู่ตรงนี้ ไม่หนีไปไหน ความรู้สึกนี้ทำให้รู้ว่า ความรักมันไม่ใช่แค่ความสุข แต่มันคือการพยายามเข้าใจกันในวันที่ยากด้วย</div></div> 
+<div class="item right"><div class="box">🌈 เดือนที่ 4 – ความทรงจำ : ทุกเสียงหัวเราะ ทุกการงอน ทุกการง้อ มันกลายเป็นความทรงจำที่อบอุ่นมากขึ้นเรื่อย ๆ เราเริ่มมีโมเมนต์เล็ก ๆ ที่ดูธรรมดา แต่กลับมีความหมายมากกว่าที่คิด และทุกอย่างทำให้เราใกล้กันมากขึ้น</div></div> 
+<div class="item left"><div class="box">💙 เดือนที่ 5 – คิดถึงมากขึ้น : ความรู้สึกคิดถึงเริ่มชัดขึ้นทุกวัน แค่ไม่ได้คุยกันไม่นานใจก็เริ่มวุ่นวายแล้ว คนคนนี้กลายเป็นคนที่สำคัญโดยไม่รู้ตัว ทุกอย่างเล็ก ๆ น้อย ๆ ที่เกี่ยวกับเธอ ทำให้ยิ้มได้เสมอ</div></div>
+<div class="item right"><div class="box">💖 เดือนที่ 6 – เข้าใจหัวใจ : เราเริ่มเข้าใจนิสัยกันมากขึ้น รู้ว่าอีกฝ่ายชอบอะไร ไม่ชอบอะไร และเริ่มปรับตัวเข้าหากันแบบธรรมชาติ ไม่ฝืน ไม่บังคับ แต่เป็นความสบายใจที่เกิดขึ้นเอง</div></div> 
+<div class="item left"><div class="box">🌿 เดือนที่ 7 – ความมั่นคง : ความสัมพันธ์ของเราเริ่มนิ่งและมั่นคงขึ้น ไม่ต้องพยายามมาก แต่ก็ยังรู้สึกอบอุ่นเหมือนเดิม แค่มีเธออยู่ตรงนี้ มันก็เพียงพอแล้วสำหรับทุกวัน ถึงแม้อาจมีช่วงที่เราเลิกกันไปอาทิตย์นึง แล้วก็กลับมาคบกันเหมือนเดิม</div></div> 
+<div class="item right"><div class="box">🌲 เดือนที่ 8 – ปัจจุบัน : 8 เดือนแล้วนะ ขอบคุณที่ยังอยู่ข้างกันมาตลอด ไม่ว่าจะวันดีหรือวันแย่ เราก็ยังเลือกกันและกันเสมอ และนี่แค่จุดเริ่มต้นของเรื่องราวที่ยังอีกยาวไกลมาก ๆ</div></div>
+
+<!-- ปุ่ม -->
+<div class="btn-group">
+<button class="btn back" onclick="back()">🔙 ย้อนกลับ</button>
+<button class="btn next" onclick="next()">ไปต่อ 💌</button>
+</div>
+
+</div>
+
+<script>
+function next(){
+window.location.href="message.html";
+}
+
+function back(){
+window.location.href="story.html";
+}
+</script>
+
+<!-- 👇 ใส่ตรงนี้ก่อนปิด body -->
+<script>
+const leafContainer = document.querySelector('.leaves');
+
+const leafIcons = ['🍃','🍂','🌿'];
+
+for(let i = 0; i < 25; i++){
+  let leaf = document.createElement('div');
+  leaf.classList.add('leaf');
+
+  leaf.innerHTML = leafIcons[Math.floor(Math.random() * leafIcons.length)];
+
+  leaf.style.left = Math.random() * 100 + 'vw';
+  leaf.style.animationDuration = (5 + Math.random() * 10) + 's';
+  leaf.style.fontSize = (12 + Math.random() * 20) + 'px';
+  leaf.style.opacity = Math.random();
+
+  leafContainer.appendChild(leaf);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown 🌲💚</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+  font-family:'Kanit',sans-serif;
+  color: #e8f5e9;
+  text-align: center;
+  padding: 30px 20px;
+
+  background:
+    linear-gradient(rgba(10,20,15,0.75), rgba(0,0,0,0.9)),
+    url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjgjWdNyGy7tURM7b0EoLPKAQbu0csUiw02g&s');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Header */
+.title {
+  font-size: 60px;
+  margin-bottom: 5px;
+  color: #c8e6c9;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #a5d6a7;
+  margin-bottom: 40px;
+}
+
+/* Grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Card */
+.event-card {
+  background: rgba(40,60,40,0.55);
+  border-radius: 18px;
+  padding: 22px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transition: 0.3s;
+  border: 1px solid rgba(129,199,132,0.2);
+}
+
+.event-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.event-card h2 {
+  font-size: 20px;
+  color: #c8e6c9;
+  margin-bottom: 10px;
+}
+
+.event-card p {
+  font-size: 16px;
+  color: #e8f5e9;
+}
+
+/* Buttons */
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+
+  background: linear-gradient(135deg,#2e7d32,#004d40);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  transform: scale(1.08);
+}
+
+/* Leaf fall */
+.leaf {
+  position: absolute;
+  top: -10%;
+  width: 14px;
+  height: 14px;
+  background: rgba(139,195,74,0.7);
+  border-radius: 50% 0 50% 0;
+  animation: fall linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+</style>
+</head>
+
+<body>
+
+<h1 class="title">🌲 Countdown 💚</h1>
+<div class="subtitle">ทุกวันคือการเดินทางในป่าของเรา</div>
+
+<div class="grid-container" id="events"></div>
+
+<div class="nav-buttons">
+  <a class="nav-btn" href="message.html">⬅️ ย้อนกลับ</a>
+  <a class="nav-btn" href="gallery.html">ถัดไป 💌</a>
+</div>
+
+<script>
+
+const events = [
+  { name: "New Year 🌲", date: new Date(2027,0,1) },
+  { name: "8 Months 💚", date: new Date(2026,4,12) },
+  { name: "9 Months 🌿", date: new Date(2026,5,12) },
+  { name: "Birthday 🎂", date: new Date(2026,5,28) },
+  { name: "1 Year 💖", date: new Date(2026,8,12) },
+  { name: "2 Years 🌳", date: new Date(2027,8,12) },
+  { name: "5 Years 🌲", date: new Date(2030,8,12) },
+  { name: "10 Years 💍", date: new Date(2035,8,12) }
+];
+
+function update() {
+  const now = new Date();
+  const box = document.getElementById("events");
+  box.innerHTML = "";
+
+  events.forEach(e => {
+    const diff = e.date - now;
+
+    let text;
+
+    if(diff <= 0){
+      text = "💚 ถึงวันแล้วนะ";
+    } else {
+      const d = Math.floor(diff / (1000*60*60*24));
+      const h = Math.floor((diff / (1000*60*60)) % 24);
+      const m = Math.floor((diff / (1000*60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+
+      text = `${d} วัน ${h} ชม ${m} นาที ${s} วิ`;
+    }
+
+    const card = document.createElement("div");
+    card.className = "event-card";
+    card.innerHTML = `<h2>${e.name}</h2><p>${text}</p>`;
+    box.appendChild(card);
+  });
+}
+
+setInterval(update, 1000);
+update();
+
+/* ใบไม้ */
+function leaf() {
+  const l = document.createElement("div");
+  l.className = "leaf";
+  l.style.left = Math.random() * 100 + "vw";
+  l.style.animationDuration = (4 + Math.random()*5) + "s";
+  document.body.appendChild(l);
+  setTimeout(() => l.remove(), 9000);
+}
+
+setInterval(leaf, 300);
+
+</script>
+
+</body>
+</html>

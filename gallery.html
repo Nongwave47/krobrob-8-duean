@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery 🌲💚</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Kanit',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(10,20,15,0.75), rgba(0,0,0,0.92)),
+    url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRRdI1ol4z9LxJ0_ghDMSz8WJfs8fyGaHO3g&s');
+  background-size:cover;
+  background-position:center;
+  color:#e8f5e9;
+  overflow-x:hidden;
+  padding:40px 20px;
+}
+
+/* 🌿 ใบไม้ร่วง */
+.leaf{
+  position:fixed;
+  top:-10%;
+  width:14px;
+  height:14px;
+  background:rgba(139,195,74,0.7);
+  border-radius:50% 0 50% 0;
+  animation:fall linear infinite;
+  pointer-events:none;
+  z-index:1;
+}
+
+@keyframes fall{
+  0%{transform:translateY(0) rotate(0deg); opacity:0;}
+  10%{opacity:1;}
+  100%{transform:translateY(110vh) rotate(360deg); opacity:0;}
+}
+
+/* header */
+.header{
+  text-align:center;
+  margin-bottom:40px;
+  position:relative;
+  z-index:2;
+}
+
+.header h1{
+  font-size:52px;
+  color:#c8e6c9;
+}
+
+.header p{
+  color:#a5d6a7;
+  margin-top:10px;
+}
+
+/* gallery grid */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+  max-width:1100px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+}
+
+.card{
+  background:rgba(40,60,40,0.55);
+  border-radius:18px;
+  overflow:hidden;
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  transition:0.3s;
+  border:1px solid rgba(129,199,132,0.2);
+}
+
+.card:hover{
+  transform:translateY(-5px) scale(1.03);
+}
+
+.img{
+  height:160px;
+  background-size:cover;
+  background-position:center;
+}
+
+.content{
+  padding:15px;
+}
+
+.content h3{
+  color:#c8e6c9;
+  margin-bottom:5px;
+}
+
+.content p{
+  font-size:14px;
+  color:#e8f5e9;
+  opacity:0.9;
+}
+
+/* buttons */
+.btns{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-top:50px;
+  flex-wrap:wrap;
+  position:relative;
+  z-index:2;
+}
+
+.btn{
+  padding:12px 26px;
+  border-radius:30px;
+  text-decoration:none;
+  color:white;
+  background:linear-gradient(135deg,#2e7d32,#004d40);
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.08);
+}
+
+.back{
+  background:rgba(255,255,255,0.15);
+}
+
+.back:hover{
+  background:rgba(255,255,255,0.25);
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌲 Memory Gallery 💚</h1>
+  <p>ทุกช่วงเวลาถูกเก็บไว้ในป่านี้</p>
+</div>
+
+<div class="grid">
+    <img src=".jpg" alt="Jungle-photo 1">
+</div>
+
+<div class="btns">
+  <a class="btn back" href="countdown.html">⬅️ ย้อนกลับ</a>
+  <a class="btn" href="message.html">ถัดไป 💌</a>
+</div>
+
+<script>
+// 🌿 สร้างใบไม้ร่วง
+function createLeaf(){
+  const leaf = document.createElement('div');
+  leaf.classList.add('leaf');
+  leaf.style.left = Math.random() * 100 + 'vw';
+  leaf.style.animationDuration = (4 + Math.random() * 5) + 's';
+  leaf.style.opacity = Math.random();
+  document.body.appendChild(leaf);
+
+  setTimeout(() => {
+    leaf.remove();
+  }, 9000);
+}
+
+setInterval(createLeaf, 300);
+</script>
+
+</body>
+</html>
