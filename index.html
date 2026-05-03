@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8 เดือนของเรา 🌿</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Kanit', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(rgba(34, 49, 34, 0.75), rgba(20, 30, 20, 0.9)),
+                  url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e');
+      background-size: cover;
+      background-position: center;
+      color: #f5f5dc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    /* floating leaves effect */
+    .leaf {
+      position: absolute;
+      top: -10%;
+      width: 20px;
+      height: 20px;
+      background: rgba(139, 195, 74, 0.7);
+      border-radius: 50% 0 50% 0;
+      animation: fall linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% { opacity: 1; }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .overlay {
+      background: rgba(60, 40, 20, 0.6);
+      padding: 50px 30px;
+      border-radius: 25px;
+      backdrop-filter: blur(8px);
+      max-width: 600px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      animation: fadeIn 2s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      color: #d7ccc8;
+      animation: glow 3s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #4caf50; }
+      to { text-shadow: 0 0 20px #81c784; }
+    }
+
+    h2 {
+      font-weight: 300;
+      margin-bottom: 25px;
+      color: #c5e1a5;
+    }
+
+    p {
+      margin-bottom: 20px;
+      line-height: 1.6;
+      color: #f1f8e9;
+    }
+
+    button {
+      background: linear-gradient(135deg, #4e342e, #2e7d32);
+      border: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      animation: pulse 2s infinite;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: linear-gradient(135deg, #3e2723, #1b5e20);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(76,175,80,0.6); }
+      70% { box-shadow: 0 0 0 15px rgba(76,175,80,0); }
+      100% { box-shadow: 0 0 0 0 rgba(76,175,80,0); }
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #a5d6a7;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- floating leaves -->
+  <script>
+    for (let i = 0; i < 15; i++) {
+      let leaf = document.createElement('div');
+      leaf.classList.add('leaf');
+      leaf.style.left = Math.random() * 100 + 'vw';
+      leaf.style.animationDuration = (5 + Math.random() * 5) + 's';
+      leaf.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(leaf);
+    }
+  </script>
+
+  <div class="overlay">
+    <h1>🌿 8 เดือนของเรา 🌿</h1>
+    <h2>ยังคงเดินด้วยกันเหมือนในป่าเดียวกัน 🌲</h2>
+
+    <p>
+      จากวันแรกที่เราเจอกัน จนถึงวันนี้
+      ทุกช่วงเวลามันเหมือนการเดินทางในป่า
+      บางวันก็มีแดด บางวันก็มีฝน
+      แต่เราก็ยังเดินข้างกันมาตลอด
+    </p>
+
+    <button onclick="goToNextPage()">ไปต่อกันนะ 💌</button>
+
+    <footer>
+      อยู่ด้วยกันไปอีกนานๆนะ 🌿
+    </footer>
+  </div>
+
+  <script>
+    function goToNextPage() {
+      window.location.href = "story.html";
+    }
+  </script>
+
+</body>
+</html>
