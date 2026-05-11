@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The End 🌲💚</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Kanit',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.95)),
+    url('https://p4.wallpaperbetter.com/wallpaper/404/95/649/forest-photography-roads-1920x1080-nature-forests-hd-art-wallpaper-preview.jpg');
+  background-size:cover;
+  background-position:center;
+  color:#e8f5e9;
+  overflow:hidden;
+  padding:40px;
+}
+
+/* 🌿 ใบไม้ */
+.leaf{
+  position:absolute;
+  top:-10%;
+  width:14px;
+  height:14px;
+  background:rgba(139,195,74,0.7);
+  border-radius:50% 0 50% 0;
+  animation:fall linear infinite;
+}
+
+@keyframes fall{
+  0%{transform:translateY(0) rotate(0); opacity:0;}
+  10%{opacity:1;}
+  100%{transform:translateY(110vh) rotate(360deg); opacity:0;}
+}
+
+/* 🌫️ หมอก */
+.fog{
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle at center, rgba(255,255,255,0.08), transparent 60%);
+  animation:moveFog 10s infinite alternate;
+  pointer-events:none;
+}
+
+@keyframes moveFog{
+  from{transform:translateX(-20px);}
+  to{transform:translateX(20px);}
+}
+
+/* 💚 container */
+.container{
+  width:100%;
+  max-width:900px;
+  padding:60px 50px;
+  background:rgba(30,50,30,0.45);
+  backdrop-filter:blur(12px);
+  border-radius:25px;
+  text-align:center;
+  z-index:2;
+}
+
+/* title */
+h1{
+  font-size:3rem;
+  color:#c8e6c9;
+  margin-bottom:25px;
+}
+
+/* text animation */
+.line{
+  opacity:0;
+  transform:translateY(10px);
+  animation:fadeUp 1s forwards;
+  margin-bottom:15px;
+  font-size:18px;
+  line-height:1.8;
+}
+
+@keyframes fadeUp{
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* delay each line */
+.line:nth-child(2){animation-delay:0.3s;}
+.line:nth-child(3){animation-delay:1s;}
+.line:nth-child(4){animation-delay:1.7s;}
+
+.highlight{
+  color:#a5d6a7;
+  font-weight:600;
+}
+
+/* final quote */
+.end{
+  margin-top:30px;
+  font-size:20px;
+  color:#a5d6a7;
+  opacity:0;
+  animation:fadeUp 1s forwards;
+  animation-delay:2.5s;
+}
+
+/* button */
+.btn{
+  margin-top:35px;
+  padding:14px 32px;
+  border:none;
+  border-radius:40px;
+  background:linear-gradient(135deg,#2e7d32,#004d40);
+  color:white;
+  cursor:pointer;
+  font-size:16px;
+  transition:0.3s;
+  opacity:0;
+  animation:fadeUp 1s forwards;
+  animation-delay:3.2s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<div class="fog"></div>
+
+<div class="container">
+
+  <h1>🌲 THE END</h1>
+
+  <div class="line">8 เดือนที่ผ่านมา ไม่ใช่แค่เวลา</div>
+  <div class="line">แต่มันคือ <span class="highlight">เรื่องราวของเรา</span></div>
+  <div class="line">ที่ไม่ได้สมบูรณ์แบบ… แต่มีความหมายที่สุด</div>
+
+  <div class="end">— และเรายังเลือกกันอยู่เสมอ 💚</div>
+
+  <button class="btn" onclick="restart()">🔄 เริ่มใหม่</button>
+
+</div>
+
+<script>
+// leaves
+for(let i=0;i<18;i++){
+  let leaf=document.createElement('div');
+  leaf.className='leaf';
+  leaf.style.left=Math.random()*100+'vw';
+  leaf.style.animationDuration=(4+Math.random()*5)+'s';
+  document.body.appendChild(leaf);
+}
+
+function restart(){
+  window.location.href="index.html";
+}
+</script>
+
+</body>
+</html>
